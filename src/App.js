@@ -1,11 +1,13 @@
-import "./App.css";
+import { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
-import { expenses as expensesData } from "./data/expense";
+import { expenses as DUMMY_EXPENSES } from "./data/expense";
+import "./App.css";
+
 function App() {
+  const [expensesData, setExpensesData] = useState(DUMMY_EXPENSES);
   const addExpenseHandler = (data) => {
-    console.log("in App.js");
-    console.log(data);
+    setExpensesData((prevExpense) => [data, ...prevExpense]);
   };
   return (
     <div>
