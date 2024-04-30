@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./ExpenseForm.scss";
 
 const ExpenseForm = (props) => {
+  const [showForm, setShowForm] = useState(false);
   const [userInput, setUserInput] = useState({
     title: "",
     amount: "",
@@ -23,6 +24,14 @@ const ExpenseForm = (props) => {
       return { ...prevState, date: event.target.value };
     });
   };
+  const cancelFormHandler = () => {
+    setUserInput({
+      title: "",
+      amount: "",
+      date: "",
+    });
+    setShowForm(false);
+  };
   const submitHandler = (event) => {
     event.preventDefault();
     userInput.date = new Date(userInput.date);
@@ -34,6 +43,9 @@ const ExpenseForm = (props) => {
       date: "",
     });
   };
+  if (!showForm) {
+    return <button onClick={() => setShowForm(true)}>Add new Expense</button>;
+  }
   return (
     <form onSubmit={submitHandler}>
       <div className='new-expense__controls'>
@@ -70,6 +82,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className='new-expense__actions'>
+        <button onClick={cancelFormHandler}>Cancel</button>
         <button type='submit'>Add Expense</button>
       </div>
     </form>
