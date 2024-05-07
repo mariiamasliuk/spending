@@ -4,7 +4,7 @@ import ExpenseFilter from "./ExpenseFilter";
 import ExpensesChart from "./ExpensesChart";
 
 import Card from "../UI/Card";
-import "./Expenses.scss";
+import styles from "./Expenses.module.scss";
 
 const Expenses = ({ expensesData }) => {
   const [filteredYear, setFilteredYear] = useState("2020");
@@ -17,7 +17,7 @@ const Expenses = ({ expensesData }) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
   return (
-    <Card className='expenses'>
+    <Card className={styles["expenses"]}>
       <ExpenseFilter
         selectedYear={filteredYear}
         filterYear={filterYearHandler}

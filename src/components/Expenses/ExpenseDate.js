@@ -1,4 +1,4 @@
-import "./ExpenseDate.scss";
+import styles from "./ExpenseDate.module.scss";
 import Card from "../UI/Card";
 
 const ExpenseDate = ({ date }) => {
@@ -7,10 +7,10 @@ const ExpenseDate = ({ date }) => {
   const year = date.getFullYear();
 
   return (
-    <Card className='expense-date'>
-      <div className='expense-date__month'>{month}</div>
-      <div className='expense-date__year'>{year}</div>
-      <div className='expense-date__day'>{day}</div>
+    <Card className={styles["expense-date"]}>
+      <div className={styles["expense-date__month"]}>{month}</div>
+      <div className={styles["expense-date__year"]}>{year}</div>
+      <div className={styles["expense-date__day"]}>{day}</div>
     </Card>
   );
 };

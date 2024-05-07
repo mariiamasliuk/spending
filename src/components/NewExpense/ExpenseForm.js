@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./ExpenseForm.scss";
+import styles from "./ExpenseForm.module.scss";
 import ErrorModal from "../UI/ErrorModal";
 
 const ExpenseForm = (props) => {
@@ -77,8 +77,8 @@ const ExpenseForm = (props) => {
         />
       )}
       <form onSubmit={submitHandler}>
-        <div className='new-expense__controls'>
-          <div className='new-expense__control'>
+        <div className={styles["new-expense__controls"]}>
+          <div className={styles["new-expense__control"]}>
             <label htmlFor='title'>Title</label>
             <input
               id='title'
@@ -87,7 +87,7 @@ const ExpenseForm = (props) => {
               onChange={titleChangeHandler}
             />
           </div>
-          <div className='new-expense__control'>
+          <div className={styles["new-expense__control"]}>
             <label htmlFor='amount'>Amount</label>
             <input
               id='amount'
@@ -98,7 +98,7 @@ const ExpenseForm = (props) => {
               step='0.01'
             />
           </div>
-          <div className='new-expense__control'>
+          <div className={styles["new-expense__control"]}>
             <label htmlFor='date'>Date</label>
             <input
               id='date'
@@ -110,7 +110,7 @@ const ExpenseForm = (props) => {
             />
           </div>
         </div>
-        <div className='new-expense__actions'>
+        <div className={styles["new-expense__actions"]}>
           <button onClick={cancelFormHandler}>Cancel</button>
           <button type='submit'>Add Expense</button>
         </div>
