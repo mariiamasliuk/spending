@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./ExpenseForm.module.scss";
 import ErrorModal from "../UI/ErrorModal";
+import Button from "../UI/Button";
 
 const ExpenseForm = (props) => {
   const [showForm, setShowForm] = useState(false);
@@ -65,7 +66,7 @@ const ExpenseForm = (props) => {
     });
   };
   if (!showForm) {
-    return <button onClick={() => setShowForm(true)}>Add new Expense</button>;
+    return <Button onClick={() => setShowForm(true)}>Add new Expense</Button>;
   }
   return (
     <>
@@ -111,8 +112,8 @@ const ExpenseForm = (props) => {
           </div>
         </div>
         <div className={styles["new-expense__actions"]}>
-          <button onClick={cancelFormHandler}>Cancel</button>
-          <button type='submit'>Add Expense</button>
+          <Button onClick={cancelFormHandler}>Cancel</Button>
+          <Button type='submit'>Add Expense</Button>
         </div>
       </form>
     </>
